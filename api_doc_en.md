@@ -1,6 +1,6 @@
-#  Exchange-official-API-docs
+#  BITPointAPEC-official-API-docs
 
-#### Official Documentation for the Exchange APIs and Streams([简体中文版文档](https://github.com/exchange-doc/api/blob/master/api/zh_cn/api_doc_cn.md))
+#### Official Documentation for the BITPointAPEC APIs and Streams([简体中文版文档](https://github.com/BITPointAPEC/api/blob/master/api_doc_cn.md))
 - [Introduction](#Introduction)
 - [Getting Started](#startToUse)
 - [Encrypted Verification of API](#a1)
@@ -50,7 +50,7 @@
 
 # <span id="Introduction">Introduction</span>
 
-Welcome to [Exchange](https://www.Exchange.com/index) API document for developers.
+Welcome to [BITPointAPEC](https://www.bitpoint-apec.com/index) API document for developers.
 
 This file provides the related API application introduction. Open-API includes the port to acquire balance, all orders ,and all transaction record. Ws-API response for the port of K line functions.
 
@@ -72,7 +72,7 @@ Developers are recommended to use REST API to proceed spot trading and withdrawa
 
 ## <span id="a2">Generate an API Key</span>
 
-Before signing any request, you must generate an API key via [Exchange’s official website ](https://www.Exchange.com/index)【User Center】-【API】. After generating the key, there are three things you must bear in mind:
+Before signing any request, you must generate an API key via [BITPointAPEC](https://www.bitpoint-apec.com/index)【User Center】-【API】. After generating the key, there are three things you must bear in mind:
 
 - API Key
  
@@ -111,7 +111,7 @@ sign=md5(api_key1234567time12312312312137789654)
 
 ## <span id="a6">Request Process</span>
 
-The root URL for REST access：``` https://api.Exchange.com ```
+The root URL for REST access：``` http://openapi.bitpoint-apec.com ```
 
 ###  <span id="a7">Request</span>
 All requests are based on Https protocol, contentType in the request header must be uniformly set as: ‘application/json’.
@@ -1100,7 +1100,9 @@ Return value:
 }
 ```
 
+## <span id="b7">ws-api</span>
 
+The root URL for ws access：``` ws://ws.bitpoint-apec.com ```
 ---
 ###  <span id="19">Subscription - K Line Market</span>
 
@@ -1441,7 +1443,7 @@ public class Main {
         params.put("sign", sign);
 
 /** http request */
-        String resultJson = get("https://api.Exchange.com/open/api/get_trades?symbol=btcusdt", params);
+        String resultJson = get("https://openapi.bitpoint-apec.com/open/api/get_trades?symbol=btcusdt", params);
         System.out.println(resultJson);
     }
 
@@ -1607,7 +1609,7 @@ public class WsTest {
     public static void main(String[] args) {
         try {
 //wsurl 
-            String url = "wss://ws.Exchange.com/kline-api/ws";
+            String url = "wss://ws.bitpoint-apec.com/kline-api/ws";
 //Historical data request parameters 
             String reqParam = "{"event":"req","params":{"channel":"market_btcusdt_trade_ticker","cb_id":"btcusdt","top":150}}";
 //Subscription parameters 

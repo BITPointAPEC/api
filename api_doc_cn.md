@@ -1,6 +1,6 @@
-#  Exchange官方API文档
+#  BITPointAPEC官方API文档
 
-#### Exchange交易所开发文档([English Docs](https://github.com/exchange-doc/api/blob/master/api/us_en/api_doc_en.md))
+#### BITPointAPEC交易所开发文档([English Docs](https://github.com/BITPointAPEC/api/blob/master/api_doc_en.md))
 - [介绍](#Introduction)
 - [开始使用](#startToUse)
 - [API接口加密验证](#a1)
@@ -52,7 +52,7 @@
 
 # <span id="Introduction">介绍</span>
 
-欢迎使用交易所开发者文档
+欢迎使用[BITPointAPEC](https://www.bitpoint-apec.com/index)开发者文档
 
 本文档提供了相关API的使用方法介绍。open-api包含了资产余额，获取全部委托，获取全部成交记录等接口，ws-api则提供了K线相关功能接口。
 
@@ -73,7 +73,7 @@ REST，即Representational State Transfer的缩写，是一种流行的互联网
 # <span id="a1">API接口加密验证</span>
 
 ## <span id="a2">生成API Key</span>
-在对任何请求进行签名之前，您必须通过 [交易所]【用户中心】-【API】创建一个API key。 创建key后，您将获得3个必须记住的信息：
+在对任何请求进行签名之前，您必须通过 [BITPointAPEC](https://www.bitpoint-apec.com/index)【用户中心】-【API】创建一个API key。 创建key后，您将获得3个必须记住的信息：
 
 - API Key
  
@@ -113,7 +113,7 @@ sign=md5(api_key1234567time12312312312137789654)
 
 ## <span id="a6">请求交互</span>
 
-REST访问的根URL：``` https://openapi.domain.com ```
+REST访问的根URL：``` http://openapi.bitpoint-apec.com ```
 
 ###  <span id="a7">请求</span>
 所有请求基于Https协议，请求头信息中Content-Type 需要统一设置为:'application/json’。
@@ -1094,6 +1094,8 @@ REST API
 
 ## <span id="b7">ws-api</span>
 
+访问的根URL：``` ws://ws.bitpoint-apec.com ```
+
 ---
 ###  <span id="19">订阅-K线行情</span>
 
@@ -1429,7 +1431,7 @@ public class Main {
         params.put("sign", sign);
 
         /** http请求 */
-        String resultJson = get("https://openapi.domain.com/open/api/get_trades?symbol=btcusdt", params);
+        String resultJson = get("https://openapi.bitpoint-apec.com/open/api/get_trades?symbol=btcusdt", params);
         System.out.println(resultJson);
     }
 
@@ -1598,7 +1600,7 @@ public class WsTest {
     public static void main(String[] args) {
         try {
 //wsurl 
-            String url = "wss://ws.domain.com/kline-api/ws";
+            String url = "wss://ws.bitpoint-apec.com/kline-api/ws";
 //历史数据请求参数 
             String reqParam = "{"event":"req","params":{"channel":"market_btcusdt_trade_ticker","cb_id":"btcusdt","top":150}}";
 //订阅参数 
